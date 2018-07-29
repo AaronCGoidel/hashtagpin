@@ -9,7 +9,7 @@ class App extends Component {
 				constructor(props){
 								super(props);
 								this.state = {
-												value: 'pin',
+												value: '#pin',
 												copied: false,
 												word: "pin",
 												open: false
