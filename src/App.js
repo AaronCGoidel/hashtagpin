@@ -26,7 +26,8 @@ class App extends Component {
 												"pineapple", "pinstripe", "pinocytosis", "pincushion",
 												"pinto bean", "pinky finger", "pinocchio", "pinot noir",
 												"ping pong", "pinterest", "pink floyd", "pina colada",
-												"pink panther", "pint-sized", "pinch me", "pins and needles"
+												"pink panther", "pint-sized", "pinch me", "pins and needles",
+												"pinhead larry", "pinch hitter", "pinch penny", "pineapple upside down cake"
 								];
 
 								document.addEventListener('keydown', (evt)=>{
