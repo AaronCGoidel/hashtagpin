@@ -36,7 +36,7 @@ class App extends Component {
 																let wordIndex = Math.floor(Math.random() * wordList.length);
 																this.setState({
 																				word: wordList[wordIndex],
-																				value: wordList[wordIndex],
+																				value: "#" + wordList[wordIndex],
 																				copied: false
 																});
 												}
@@ -99,7 +99,7 @@ class App extends Component {
 																				color: "#ffffff"
 																}}>
 																				Made With &lt;3 by&nbsp;
-																				<a style={{color: "#fff"}} href={"https://github.com/AaronCGoidel/"} target="_blank">
+																				<a style={{color: "#fff"}} href={"https://github.com/AaronCGoidel/hashtagpin"} target="_blank">
 																								Aaron Goidel
 																</a>
 																</Typography>
