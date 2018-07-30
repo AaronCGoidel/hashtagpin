@@ -40,10 +40,13 @@ export const words = [
   'pinch hitter',
   'pinch penny',
   'pineapple upside down cake',
+  'loop_#pinvariant' // Hi Anna!
 ];
 
 export const memes = [
   'According to all known laws of aviation, there is no way a bee should be able to fly. Its #pings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don\'t care what humans think is impossible.',
   'To be fair, you have to have a very high IQ to #pinderstand Rick and Morty. The humour is extremely subtle, and without a solid grasp of theoretical physics most of the jokes will go over a typical viewer\'s head.',
-  'des#pincito'];
+  'des#pincito',
+  'Car salesman: *slaps roof of C* this bad boy can fit so many undefined behaviour #pin it',
+  'Car salesman: *slaps roof of accessing uninitialized memory* Uni#pintialized memory: *slaps him back*'];
 

@@ -25,7 +25,7 @@ class App extends Component {
       wordList = memes;
     }
     let wordIndex = Math.floor(Math.random() * wordList.length);
-    if(!this.state.masha){
+    if(wordList[wordIndex].indexOf('#') === -1){
       this.setState({
         word: wordList[wordIndex],
         value: '#' + wordList[wordIndex],
@@ -72,11 +72,12 @@ class App extends Component {
   };
 
   render() {
-    document.title = '#' + this.state.word + ' | Piazza Pin';
+    document.title = this.state.value + ' | Piazza Pin';
     return (
         <div className="App" style={{backgroundColor: '#625fff'}}>
           <Paper style={{
             position: 'fixed',
+            paddingLeft: '20px', paddingRight: '20px',
             width: '50%', minHeight: '50vh',
             backgroundColor: '#23272f',
             display: 'flex',
@@ -90,8 +91,8 @@ class App extends Component {
                 borderBottom: '3px dashed',
                 cursor: 'pointer',
                 color: '#ffffff',
-              }} variant={this.state.word.length > 20 ? "body1" :"display3"} component="h3">
-                {!this.state.masha ? "#" : null}{this.state.word}
+              }} variant={this.state.word.length > 30 ? "body1" : "display3"} component="h3">
+                {this.state.value}
               </Typography>
             </CopyToClipboard>
             <Typography style={{
