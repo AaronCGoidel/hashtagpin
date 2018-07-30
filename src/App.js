@@ -25,11 +25,20 @@ class App extends Component {
       wordList = memes;
     }
     let wordIndex = Math.floor(Math.random() * wordList.length);
-    this.setState({
-      word: wordList[wordIndex],
-      value: '#' + wordList[wordIndex],
-      copied: false,
-    });
+    if(!this.state.masha){
+      this.setState({
+        word: wordList[wordIndex],
+        value: '#' + wordList[wordIndex],
+        copied: false,
+      });
+    }else{
+      this.setState({
+        word: wordList[wordIndex],
+        value: wordList[wordIndex],
+        copied: false,
+      });
+    }
+
   }
 
   componentWillMount() {
