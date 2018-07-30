@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import Snackbar from '@material-ui/core/Snackbar';
+import {words, memes} from './Lists.js';
 import './App.css';
 
 class App extends Component {
@@ -13,64 +14,34 @@ class App extends Component {
       copied: false,
       word: 'pin',
       open: false,
+      masha: false,
+      mtoast: false
     };
   }
 
+  shuffle(){
+    let wordList = words;
+    if(this.state.masha){
+      wordList = memes;
+    }
+    let wordIndex = Math.floor(Math.random() * wordList.length);
+    this.setState({
+      word: wordList[wordIndex],
+      value: '#' + wordList[wordIndex],
+      copied: false,
+    });
+  }
+
   componentWillMount() {
-    let wordList = [
-      'pin',
-      'ping',
-      'pink',
-      'pint',
-      'pine',
-      'pinot',
-      'pinch',
-      'pingo',
-      'pinkie',
-      'pinion',
-      'pinata',
-      'pinyin',
-      'pincer',
-      'pinball',
-      'pinhead',
-      'pinpoint',
-      'pinnacle',
-      'pinewood',
-      'pine tree',
-      'pinwheel',
-      'pinecone',
-      'pineapple',
-      'pinstripe',
-      'pinocytosis',
-      'pincushion',
-      'pinto bean',
-      'pinky finger',
-      'pinocchio',
-      'pinot noir',
-      'ping pong',
-      'pinterest',
-      'pink floyd',
-      'pina colada',
-      'pink panther',
-      'pint-sized',
-      'pinch me',
-      'pins and needles',
-      'pinhead larry',
-      'pinch hitter',
-      'pinch penny',
-      'pineapple upside down cake',
-    ];
+    console.log(words);
 
     document.addEventListener('keydown', (evt) => {
       const keyCode = evt.keyCode;
-      console.log(wordList.length);
       if (keyCode === 32) {
-        let wordIndex = Math.floor(Math.random() * wordList.length);
-        this.setState({
-          word: wordList[wordIndex],
-          value: '#' + wordList[wordIndex],
-          copied: false,
-        });
+        this.shuffle();
+      }else if(keyCode === 77){
+        this.setState({masha: !this.state.masha, mashatoast: true});
+        this.shuffle();
       }
     });
   }
@@ -81,6 +52,14 @@ class App extends Component {
     }
 
     this.setState({copied: false});
+  };
+
+  handleCloseM = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    this.setState({mashatoast: false});
   };
 
   render() {
@@ -102,8 +81,8 @@ class App extends Component {
                 borderBottom: '3px dashed',
                 cursor: 'pointer',
                 color: '#ffffff',
-              }} variant="display3" component="h3">
-                #{this.state.word}
+              }} variant={this.state.word.length > 20 ? "body1" :"display3"} component="h3">
+                {!this.state.masha ? "#" : null}{this.state.word}
               </Typography>
             </CopyToClipboard>
             <Typography style={{
@@ -124,6 +103,18 @@ class App extends Component {
                   'aria-describedby': 'message-id',
                 }}
                 message={<span id="message-id">Copied to clipboard</span>}
+            />
+
+            <Snackbar
+                anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
+                open={this.state.mashatoast}
+                autoHideDuration={4000}
+                onClose={this.handleCloseM}
+                ContentProps={{
+                  'aria-describedby': 'message-id',
+                }}
+                message={<span id="message-id">Toggled Masha mode
+                  {this.state.masha ? " on" : " off"}</span>}
             />
           </Paper>
           <Typography style={{
