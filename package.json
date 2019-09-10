@@ -1,6 +1,8 @@
 {
   "name": "pinecone",
   "version": "0.1.0",
+  "author": "Aaron Goidel",
+  "repository": "https://github.com/AaronCGoidel/hashtagpin",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^1.4.2",
